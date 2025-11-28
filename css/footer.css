@@ -1,0 +1,87 @@
+/* 🦶 Estilos para el Pie de Página */
+
+footer {
+    background-color: var(--color-fondo-oscuro);
+    padding-top: 5px; 
+    position: relative;
+    width: 100%;
+    margin-top: auto; 
+}
+
+/* Línea decorativa del pie: VERDE OLIVO */
+footer::before {
+    content: "";
+    display: block;
+    height: 5px;
+    background-color: var(--color-verde-olivo);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    width: 45%; 
+    margin-bottom: 20px;
+}
+
+.footer-col h3 {
+    color: var(--color-beige);
+    margin-bottom: 15px;
+    border-bottom: 2px solid #555555;
+    padding-bottom: 5px;
+}
+
+.footer-col p, .footer-col ul {
+    color: #AAAAAA;
+    font-size: 0.9em;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li a {
+    display: block;
+    padding: 3px 0;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--color-beige);
+}
+
+.socials {
+    display: flex;
+    gap: 15px;
+}
+
+.socials img {
+    width: 30px; 
+    height: 30px;
+    transition: transform 0.2s;
+}
+
+.socials img:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    background-color: #2a2a2a;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 0.8em;
+    color: #777777;
+}
+
+

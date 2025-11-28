@@ -1,0 +1,67 @@
+/* Variables de color */
+:root {
+    --color-beige: #F5F5DC; /* Color beige para la línea del encabezado */
+    --color-verde-olivo: #808000; /* Color verde olivo para la línea del pie de página */
+    --color-fondo-oscuro: #333333; 
+    --color-card-fondo: #444444; 
+    --color-texto-claro: #FFFFFF;
+}
+
+/* 🧱 Estilos Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo-oscuro); 
+    color: var(--color-texto-claro);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ⬆️ Encabezado (Línea Beige) */
+.header {
+    background-color: var(--color-fondo-oscuro);
+    padding-bottom: 5px; 
+    position: relative;
+}
+
+/* Línea decorativa del encabezado: BEIGE */
+.header::after {
+    content: "";
+    display: block;
+    height: 5px;
+    background-color: var(--color-beige);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Contenido Principal */
+.main-content {
+    flex-grow: 1; 
+    padding: 20px;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: #404040;
+    border-radius: 8px;
+}
+
+.welcome-section h2 {
+    color: var(--color-beige); /* Usamos beige para destacar el saludo */
+    margin-bottom: 5px;
+}

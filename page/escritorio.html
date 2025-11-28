@@ -1,137 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-<title>Escritorio - Mi Proyecto</title>
-<link rel="shortcut icon" href="../img/gato.png" type="image/x-icon">
-<link rel="stylesheet" href="../css/escritorio.css">
+    <title>Escritorio - Mi Proyecto</title>
+    <link rel="shortcut icon" href="../img/gato.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/escritorio.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
     <div class="escritorio-container">
-  <!-- Header -->
-  <header class="header">
-    <div class="header-content">
-      <div class="cards-grid">
-      <div class="card" onclick="window.location.href='escritorio.html'">
-        <div class="card-icon"><img src="../img/gato.png"></div>
-      <h1> GATOS </h1>
-      <div class="user-info">
-        <span class="user-name"><span id="nombreUsuario"></span></span>
-      <span class="user-role" id="rolUsuario"></span>
-        <button id="btnCerrarSesion" class="btn-logout">Cerrar Sesión</button>
-      </div>
-    </div>
-  </header>
+        
+        <header class="header">
+            <div class="header-content">
+                <div class="card" onclick="window.location.href='escritorio.html'">
+                    <div class="card-icon"><img src="../img/gato.png" alt="Icono Gatos"></div>
+                    <h1> GATOS </h1>
+                    <div class="user-info">
+                        <span class="user-name"><span id="nombreUsuario"></span></span>
+                        <span class="user-role" id="rolUsuario"></span>
+                        <button id="btnCerrarSesion" class="btn-logout">Cerrar Sesión</button>
+                    </div>
+                </div> </div> </header>
 
+        <main class="main-content">
+            <div class="welcome-section">
+                <h2>¡Bienvenido, <span id="nombreUsuarioBienvenida"></span>! </h2>
+                <p>Has iniciado sesión correctamente en el sistema.</p>
+            </div>
 
-  <!-- Contenido principal -->
-  <main class="main-content">
-    <div class="welcome-section">
-      <h2>¡Bienvenido, <span id="nombreUsuarioBienvenida"></span>! </h2>
-      <p>Has iniciado sesión correctamente en el sistema.</p>
-    </div>
+            <div class="cards-grid">
+                
+                <div class="card" onclick="window.location.href='muebles.html'">
+                    <div class="card-icon"><img src="../img/c1.png" alt="Icono Muebles"></div>
+                    <h3>MUEBLES</h3>
+                    <p>Ver futuras casa y camas para tu gatito</p>
+                </div>
+                
+                <div class="card" onclick="window.location.href='ropa.html'">
+                    <div class="card-icon"><img src="../img/c2.png" alt="Icono Ropa"></div>
+                    <h3>ROPA</h3>
+                    <p>Bonita ropaita para tu gato</p>
+                </div>
+                
+                <div class="card" onclick="window.location.href='comida.html'">
+                    <div class="card-icon"><img src="../img/c3.png" alt="Icono Comida"></div>
+                    <h3>COMIDA</h3>
+                    <p>Rica comida para la pancita de tu gato</p>
+                </div>
+                
+                <div class="card" onclick="window.location.href='higiene.html'">
+                    <div class="card-icon"><img src="../img/c4.png" alt="Icono Higiene"></div>
+                    <h3>PRODUCTOS DE HIGIENE</h3>
+                    <p>Cuidar la higiene de gato es importante</p>
+                </div>
+                
+                <div class="card" onclick="window.location.href='juguetes.html'">
+                    <div class="card-icon"><img src="../img/c5.png" alt="Icono Juguetes"></div>
+                    <h3>JUGUETES</h3>
+                    <p>Garantiza la diversion de tu gato</p>
+                </div>
 
+            </div> </main> </div> <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Sobre la Web</h3>
+                <p>Esta web es un proyecto grupal en el cual se demuestra el amor a los gatitos.</p>
+                <ul>
+                    <li><a href="escritorio.html">Inicio</a></li>
+                </ul>
+            </div>
 
-    <!-- Tarjetas de ejemplo -->
-    
-</div>
-      <div class="cards-grid">
-      <div class="card" onclick="window.location.href='muebles.html'">
-        <div class="card-icon"><img src="../img/c1.png"></div>
-        <h3>MUEBLES</h3>
-        <p>Ver futuras casa y camas para tu gatito</p>
-      </div>
-
-
-      <div class="cards-grid">
-      <div class="card" onclick="window.location.href='ropa.html'">
-        <div class="card-icon"><img src="../img/c2.png"></div>
-        <h3>ROPA</h3>
-        <p>Bonita ropaita para tu gato</p>
-      </div>
-
-
-      <div class="cards-grid">
-      <div class="card" onclick="window.location.href='comida.html'">
-        <div class="card-icon"><img src="../img/c3.png"></div>
-        <h3>COMIDA</h3>
-        <p>Rica comida para la pancita de tu gato</p>
-      </div>
-
-
-     <div class="cards-grid">
-      <div class="card" onclick="window.location.href='higiene.html'">
-        <div class="card-icon"><img src="../img/c4.png"></div>
-        <h3>PRODUCTOS DE HIGIENE</h3>
-        <p>Cuidar la higiene de gato es importante</p>
-      </div>
-    </div>
-     <div class="cards-grid">
-      <div class="card" onclick="window.location.href='juguetes.html'">
-        <div class="card-icon"><img src="../img/c5.png"></div>
-        <h3>JUGUETES</h3>
-        <p>Garantiza la diversion de tu gato</p>
-      </div>
-    </div>
-    <!-- Información de sesión -->
-    <div class="session-info">
-      <h3>Información de Sesión</h3>
-      <div class="info-grid">
-        <div class="info-item">
-          <strong>Usuario:</strong>
-          <span id="infoUsuario"></span>
-        </div>
-        <div class="info-item">
-          <strong>Nombre completo:</strong>
-          <span id="infoNombre"></span>
-        </div>
-        <div class="info-item">
-          <strong>Rol:</strong>
-          <span id="infoRol"></span>
-        </div>
-        <div class="info-item">
-          <strong>ID:</strong>
-          <span id="infoId"></span>
-        </div>
-      </div>
-    </div>
-  </main>
-</div>
-
-
-<script src="../js/escritorio.js"></script>
-<footer>
-    <div class="footer-container">
-        <!-- Columna 1: Sobre la web -->
-        <div class="footer-col">
-            <h3>Sobre la Web</h3>
-            <p>Esta web es un proyecto educativo para aprender HTML y CSS.</p>
-            <ul>
-                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="paginas/galeria.html">Galeria</a></li>
-                <li><a href="formulario.html">Contacto</a></li>
-            </ul>
+            <div class="footer-col">
+                <h3>Redes Sociales</h3>
+                <ul class="socials">
+                    <li><a href="#"><img src="../img/facebook.png" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="../img/instagram.png" alt="Instagram"></a></li>
+                    <li><a href="#"><img src="../img/whatsapp.png" alt="WhatsApp"></a></li>
+                </ul>
+            </div>
         </div>
 
-
-        <!-- Columna 2: Redes sociales -->
-        <div class="footer-col">
-            <h3>Redes Sociales</h3>
-            <ul class="socials">
-                <li><a href="#"><img src="../img/facebook.png" alt=""></a></li>
-                <li><a href="#"><img src="../img/instagram.png" alt=""></a></li>
-                <li><a href="#"><img src="../img/whatsapp.png" alt=""></a></li>
-            </ul>
+        <div class="footer-bottom">
+            &copy; 2025 Ramber Rojas. Todos los derechos reservados.
         </div>
-    </div>
-
-
-    <div class="footer-bottom">
-        &copy; 2025 Ramber Rojas. Todos los derechos reservados.
-    </div>
-</footer>
-
-
+    </footer> <script src="../js/escritorio.js"></script>
 
 </body>
 </html>

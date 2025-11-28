@@ -68,7 +68,7 @@ loginForm.addEventListener('submit', async (e) => {
       window.location.href = 'page/escritorio.html';
     }, 1000);
   } else {
-    mostrarMensaje('❌ Usuario o contraseña incorrectos', 'error');
+    mostrarMensaje(' Usuario o contraseña incorrectos', 'error');
   }
 });
 
@@ -82,3 +82,4 @@ window.addEventListener('DOMContentLoaded', () => {
     window.location.href = 'page/escritorio.html';
   }
 });
+
