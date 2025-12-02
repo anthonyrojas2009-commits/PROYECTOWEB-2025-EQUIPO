@@ -1,75 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-<title>MUEBLES</title>
-<link rel="shortcut icon" href="../img/gato.png" type="image/x-icon">
-<link rel="stylesheet" href="../css/escritorio.css">
-<link rel="stylesheet" href="../css/estilos.css">
+    <title>Muebles para Gatitos - GATOS</title>
+    <link rel="shortcut icon" href="../img/gato.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/footer.css">
-</head>
+    <link rel="stylesheet" href="../css/muebles.css">
 </head>
 <body>
-    <div class="muebles-container">
-  <!-- Header -->
-  <header class="header">
-    <div class="header-content">
-      <div class="cards-grid">
-      <div class="card" onclick="window.location.href='escritorio.html'">
-        <div class="card-icon"><img src="../img/gato.png"></div>
-      <h1> MUEBLES </h1>
-      <div class="user-info">
-        <span class="user-name"><span id="nombreUsuario"></span></span>
-      <span class="user-role" id="rolUsuario"></span>
-        <button id="btnCerrarSesion" class="btn-logout">Cerrar Sesión</button>
-      </div>
-    </div>
-  </header>
-     </div>
+    <div class="escritorio-container">
+        
+        <header class="header">
+            <div class="header-content">
+                <div class="card header-card" onclick="window.location.href='escritorio.html'">
+                    <div class="card-icon"><img src="../img/gato.png" alt="Icono Gatos"></div>
+                    <h1> GATOS </h1>
+                    <div class="user-info">
+                        <span class="user-name"><span id="nombreUsuario">Usuario</span></span>
+                        <span class="user-role" id="rolUsuario">Rol</span>
+                        <button id="btnCerrarSesion" class="btn-logout">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <footer>
-    <div class="footer-container">
-        <!-- Columna 1: Sobre la web -->
-        <div class="footer-col">
-            <h3>Sobre la Web</h3>
-            <p>Esta web es un proyecto grupal en el cual se demuestra el amor a los gatitos.</p>
-            <ul>
-                 <li><a href="escritorio.html">Inicio</a></li>
+        <main class="main-content">
+            
+            <h2 class="categoria-header">Muebles: Casas y Árboles para Jugar</h2>
+            
+            <div class="productos-grid">
                 
-            </ul>
-        </div>
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('../img/mueble_rascador.png');"></div>
+                    <div class="producto-contenido">
+                        <h3>Árbol Rascador "El Explorador"</h3>
+                        <p>Diseño multifuncional con múltiples niveles, postes de sisal y refugio en la base. Ideal para gatos activos.</p>
+                        <span class="producto-precio">$75.99</span>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('../img/mueble_cama_cueva.png');"></div>
+                    <div class="producto-contenido">
+                        <h3>Cama Cueva de Felpa</h3>
+                        <p>Máximo confort y privacidad. Mantiene el calor corporal para un descanso profundo.</p>
+                        <span class="producto-precio">$29.50</span>
+                    </div>
+                </div>
 
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('../img/mueble_estante.png');"></div>
+                    <div class="producto-contenido">
+                        <h3>Estante de Montaje Flotante</h3>
+                        <p>Optimiza el espacio vertical, permitiendo a tu gato observar desde las alturas. Incluye alfombra antideslizante.</p>
+                        <span class="producto-precio">$45.00</span>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('../img/mueble_fuente.png');"></div>
+                    <div class="producto-contenido">
+                        <h3>Fuente de Agua Cerámica Silenciosa</h3>
+                        <p>Fomenta la hidratación con agua corriente fresca, mejorando la salud renal.</p>
+                        <span class="producto-precio">$38.99</span>
+                    </div>
+                </div>
+                
+                </div>
+        </main>
+        
+        <footer>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sobre la Web</h3>
+                    <p>Esta web es un proyecto grupal en el cual se demuestra el amor a los gatitos.</p>
+                    <ul>
+                        <li><a href="escritorio.html">Inicio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Redes Sociales</h3>
+                    <ul class="socials">
+                        <li><a href="#"><img src="../img/facebook.png" alt="Facebook"></a></li>
+                        <li><a href="#"><img src="../img/instagram.png" alt="Instagram"></a></li>
+                        <li><a href="#"><img src="../img/whatsapp.png" alt="WhatsApp"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Ramber Rojas. Todos los derechos reservados.
+            </div>
+        </footer>
 
-        <!-- Columna 2: Redes sociales -->
-        <div class="footer-col">
-            <h3>Redes Sociales</h3>
-            <ul class="socials">
-                <li><a href="#"><img src="../img/facebook.png" alt=""></a></li>
-                <li><a href="#"><img src="../img/instagram.png" alt=""></a></li>
-                <li><a href="#"><img src="../img/whatsapp.png" alt=""></a></li>
-            </ul>
-        </div>
     </div>
-
-
-    <div class="footer-bottom">
-        &copy; 2025 Ramber Rojas. Todos los derechos reservados.
-    </div>
-</footer>
-
-
-</body>
+    </body>
 </html>

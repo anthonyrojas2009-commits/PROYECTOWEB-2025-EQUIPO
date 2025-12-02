@@ -1,41 +1,127 @@
-/* 📝 Estilos para la Página de Registro de la Tienda (formularios) */
-
-.contenedor-registro {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #444444; /* Fondo del formulario */
-    border-radius: 10px;
-    color: #CCCCCC;
+/* Variables de color Actualizadas */
+:root {
+    --color-principal: #556B2F;        /* Verde Oliva Fuerte (Encabezados, Éxito, Botones) */
+    --color-fondo-claro: #FFFFFF;      /* Blanco (Cuerpo, Fondo Principal) */
+    --color-gris-claro: #D3D3D3;       /* Gris Claro (Pie de página, Fondos Secundarios) */
+    --color-gris-medio: #A9A9A9;       /* Gris Medio (Fondos de Tarjeta y Elementos) */
+    --color-texto-oscuro: #333333;     /* Texto estándar */
+    --color-texto-claro: #FFFFFF;      /* Texto sobre fondos oscuros/de color */
+    
+    /* Variables de Acción (debes mantener estas si existían) */
+    --color-peligro: #D9534F; /* Rojo para eliminar */
+    --color-exito: #5CB85C; /* Verde para activo/editar */
 }
 
-.formulario-registro label {
+/* Contenedor principal para centrar el formulario */
+.registro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Asume que el body/html tiene 100vh de altura para centrarlo verticalmente */
+    min-height: 100vh; 
+    background-color: var(--color-fondo-oscuro); 
+    padding: 20px;
+}
+
+/* Tarjeta del Formulario */
+.registro-card {
+    background-color: var(--color-card-fondo);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 400px; /* Ancho máximo estándar para formularios */
+    text-align: center;
+}
+
+.registro-header {
+    margin-bottom: 25px;
+}
+
+.logo-registro {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.registro-header h2 {
+    color: var(--color-beige);
+    font-size: 1.8em;
+}
+
+/* Estilos de Formulario */
+.formulario-registro {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
     display: block;
+    color: var(--color-beige);
     margin-bottom: 5px;
     font-weight: bold;
+    font-size: 0.9em;
 }
 
-.formulario-registro input,
-.formulario-registro select {
+.form-group input, .form-group select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
     border: 1px solid #555555;
-    border-radius: 4px;
-    background-color: #333333; /* Fondo de los campos de texto */
+    border-radius: 5px;
+    background-color: #555555;
     color: white;
+    box-sizing: border-box; /* Importante para que el padding no exceda el ancho */
 }
 
-.boton-guardar {
-    background-color: var(--color-verde-olivo); /* Usando el color del pie */
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--color-primario);
+    outline: none;
+    box-shadow: 0 0 5px rgba(128, 128, 0, 0.5); /* Sombra de enfoque */
+}
+
+/* Botón de Enviar */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-primario);
     color: white;
-    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
-.boton-guardar:hover {
-    opacity: 0.8;
+.btn-submit:hover {
+    background-color: #6B8E23; /* Tono más oscuro de verde olivo */
+}
+
+/* Pie del Formulario */
+.registro-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #555555;
+    text-align: center;
+}
+
+.registro-footer p {
+    color: #CCCCCC;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.registro-footer a {
+    color: var(--color-beige);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.registro-footer a:hover {
+    color: var(--color-primario);
 }

@@ -1,49 +1,55 @@
-/* 🦶 Estilos para el Pie de Página */
+/* -------------------------------------- */
+/* CSS para el Pie de Página (Footer)     */
+/* -------------------------------------- */
 
-footer {
-    background-color: var(--color-fondo-oscuro);
-    padding-top: 5px; 
-    position: relative;
-    width: 100%;
-    margin-top: auto; 
+/* Variables de color Actualizadas */
+:root {
+    --color-principal: #556B2F;        /* Verde Oliva Fuerte */
+    --color-fondo-claro: #FFFFFF;      /* Blanco */
+    --color-gris-claro: #D3D3D3;       /* Gris Claro (Fondo del Footer) */
+    --color-gris-medio: #A9A9A9;       /* Gris Medio */
+    --color-texto-oscuro: #333333;     /* Texto estándar */
+    --color-texto-claro: #FFFFFF;      /* Texto sobre fondos oscuros/de color */
 }
 
-/* Línea decorativa del pie: VERDE OLIVO */
-footer::before {
-    content: "";
-    display: block;
-    height: 5px;
-    background-color: var(--color-verde-olivo);
+footer {
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    /* El fondo del footer es Gris Claro */
+    background-color: var(--color-gris-claro); 
+    padding: 30px 0 0;
+    margin-top: 40px; /* Separación del contenido principal */
+    font-size: 0.9em;
+    color: var(--color-texto-oscuro);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil hacia arriba */
 }
 
 .footer-container {
     display: flex;
     justify-content: space-around;
-    padding: 30px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    padding: 0 20px 20px;
+    flex-wrap: wrap; /* Para que se adapte en móviles */
 }
 
 .footer-col {
     width: 45%; 
-    margin-bottom: 20px;
+    padding: 10px;
+    min-width: 250px;
 }
 
 .footer-col h3 {
-    color: var(--color-beige);
+    /* Los encabezados del footer usan el color principal */
+    color: var(--color-principal); 
     margin-bottom: 15px;
-    border-bottom: 2px solid #555555;
+    font-size: 1.2em;
+    border-bottom: 1px solid var(--color-gris-medio);
     padding-bottom: 5px;
 }
 
-.footer-col p, .footer-col ul {
-    color: #AAAAAA;
-    font-size: 0.9em;
+.footer-col p {
+    color: var(--color-texto-oscuro);
+    margin-bottom: 10px;
 }
 
 .footer-col ul {
@@ -51,37 +57,63 @@ footer::before {
     padding: 0;
 }
 
-.footer-col ul li a {
-    display: block;
-    padding: 3px 0;
-    transition: color 0.2s;
+.footer-col li {
+    margin-bottom: 5px;
 }
 
-.footer-col ul li a:hover {
-    color: var(--color-beige);
+.footer-col a {
+    /* Links en el footer usan el color de texto oscuro */
+    color: var(--color-texto-oscuro); 
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
+.footer-col a:hover {
+    /* Al hacer hover, usan el color principal */
+    color: var(--color-principal); 
+}
+
+/* Redes Sociales */
 .socials {
     display: flex;
     gap: 15px;
+    margin-top: 10px;
 }
 
 .socials img {
-    width: 30px; 
+    width: 30px;
     height: 30px;
-    transition: transform 0.2s;
+    transition: transform 0.3s;
 }
 
 .socials img:hover {
     transform: scale(1.1);
 }
 
+/* Sección de Copyright */
 .footer-bottom {
-    background-color: #2a2a2a;
     text-align: center;
-    padding: 10px 20px;
+    /* Fondo más oscuro para la sección de copyright */
+    background-color: var(--color-gris-medio); 
+    padding: 10px 0;
+    color: var(--color-texto-oscuro);
     font-size: 0.8em;
-    color: #777777;
 }
 
+/* Media Queries (Adaptación móvil) */
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .footer-col {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+}

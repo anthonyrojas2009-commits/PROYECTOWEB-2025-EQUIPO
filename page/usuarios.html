@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Usuarios - GATOS</title>
+    <link rel="shortcut icon" href="../img/gato.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/usuarios.css">
+</head>
+<body>
+    <div class="escritorio-container">
+        
+        <header class="header">
+            <div class="header-content">
+                <div class="card header-card" onclick="window.location.href='escritorio.html'">
+                    <div class="card-icon"><img src="../img/gato.png" alt="Icono Gatos"></div>
+                    <h1> GATOS </h1>
+                    <div class="user-info">
+                        <span class="user-name"><span id="nombreUsuario">Administrador</span></span>
+                        <span class="user-role" id="rolUsuario">Admin</span>
+                        <button id="btnCerrarSesion" class="btn-logout">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            
+            <h2 class="gestion-header">Panel de Gestión de Usuarios</h2>
+            
+            <div class="control-panel">
+                <input type="text" id="filtroBusqueda" placeholder="Buscar por Nombre o Email..." class="input-busqueda">
+                <button class="btn-agregar" onclick="abrirFormularioAgregar()">+ Agregar Nuevo Usuario</button>
+            </div>
+
+            <div class="tabla-container">
+                <table class="tabla-usuarios">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre Completo</th>
+                            <th>Correo Electrónico</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Juan Pérez</td>
+                            <td>juan.perez@example.com</td>
+                            <td class="rol-admin">Administrador</td>
+                            <td>Activo</td>
+                            <td>
+                                <button class="btn-accion btn-editar">Editar</button>
+                                <button class="btn-accion btn-eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Ana García</td>
+                            <td>ana.garcia@gmail.com</td>
+                            <td class="rol-cliente">Cliente</td>
+                            <td>Activo</td>
+                            <td>
+                                <button class="btn-accion btn-editar">Editar</button>
+                                <button class="btn-accion btn-eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Pedro López</td>
+                            <td>pedro.lopez@yahoo.com</td>
+                            <td class="rol-cliente">Cliente</td>
+                            <td class="estado-suspendido">Suspendido</td>
+                            <td>
+                                <button class="btn-accion btn-editar">Editar</button>
+                                <button class="btn-accion btn-eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                        
+                        </tbody>
+                </table>
+            </div>
+            
+            </main>
+        
+        <footer>
+            <div class="footer-container">
+                </div>
+            <div class="footer-bottom">
+                &copy; 2025 Ramber Rojas. Todos los derechos reservados.
+            </div>
+        </footer>
+
+    </div>
+    </body>
+</html>

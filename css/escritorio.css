@@ -92,3 +92,196 @@
 .btn-logout:hover {
     background-color: #6B6B00;
 }
+/* 🖼️ AJUSTES PARA EL CARRUSEL Y SECCIONES INFORMATIVAS */
+
+/* Variables de color Actualizadas */
+:root {
+    --color-principal: #556B2F;        /* Verde Oliva Fuerte (Encabezados, Éxito, Botones) */
+    --color-fondo-claro: #FFFFFF;      /* Blanco (Cuerpo, Fondo Principal) */
+    --color-gris-claro: #D3D3D3;       /* Gris Claro (Pie de página, Fondos Secundarios) */
+    --color-gris-medio: #A9A9A9;       /* Gris Medio (Fondos de Tarjeta y Elementos) */
+    --color-texto-oscuro: #333333;     /* Texto estándar */
+    --color-texto-claro: #FFFFFF;      /* Texto sobre fondos oscuros/de color */
+    
+    /* Variables de Acción (debes mantener estas si existían) */
+    --color-peligro: #D9534F; /* Rojo para eliminar */
+    --color-exito: #5CB85C; /* Verde para activo/editar */
+}
+
+/* --- Animación Vertical Infinita (keyframes) --- */
+@keyframes slideVertical {
+    0% { transform: translateY(0); }
+    33.33% { transform: translateY(-100%); } 
+    66.66% { transform: translateY(-200%); } 
+    100% { transform: translateY(0); }
+}
+
+/* --- Estilos del Carrusel Vertical --- */
+.carrusel-vertical-container {
+    width: 60%; 
+    max-width: 800px;
+    height: 350px; 
+    margin: 30px auto;
+    overflow: hidden; 
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.carrusel-vertical {
+    width: 100%;
+    height: 300%; 
+    display: flex;
+    flex-direction: column; 
+    animation: slideVertical 12s infinite; 
+}
+
+.carrusel-item {
+    width: 100%;
+    height: 33.33%; 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Mapeo del Carrusel - Usando .png */
+.gato-carrusel-1 { background-image: url('../img/gato1.png'); } 
+.gato-carrusel-2 { background-image: url('../img/gato2.png'); } 
+.gato-carrusel-3 { background-image: url('../img/gato3.png'); } 
+
+/* --- Estilos Generales de Contenido (Secciones) --- */
+
+.seccion-titulo {
+    text-align: center;
+    color: var(--color-beige);
+    margin: 40px 0 30px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #555555;
+    font-size: 1.8em;
+}
+
+/* --- INTRODUCCIÓN (Agrupación) --- */
+.intro-group {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    background-color: var(--color-card-fondo);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.intro-texto {
+    flex: 1;
+    padding: 15px;
+}
+
+.intro-texto h3 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.intro-part1 {
+    border-right: 1px solid #555555; 
+}
+
+/* --- CUIDADOS Y NOTICIAS (Diseño con Imagen) --- */
+
+.cuidados-container, .noticias-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 25px;
+    margin-bottom: 30px;
+    background-color: var(--color-card-fondo);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cuidados-lista, .noticias-resumen {
+    flex: 2; 
+}
+
+/* Imagen de Cuidados y Noticias */
+.cuidados-imagen, .noticias-imagen {
+    flex: 1; 
+    min-width: 300px;
+    height: 250px;
+    border-radius: 6px;
+    background-size: cover; 
+    background-position: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Alinear imagen a la derecha (Cuidados) */
+.layout-derecha {
+    flex-direction: row-reverse;
+}
+
+/* Alinear imagen a la izquierda (Noticias) */
+.layout-izquierda {
+    flex-direction: row;
+}
+
+/* Estilos de Lista de Cuidados */
+.cuidados-lista ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+.cuidados-lista ul li {
+    margin-bottom: 10px;
+    color: #DDDDDD;
+}
+
+/* --- TIPOS DE GATOS (Grid 2xN) --- */
+.tipos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.tipo-card {
+    background-color: var(--color-card-fondo);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    height: 100%;
+}
+
+.tipo-imagen {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background-size: cover;
+    background-position: center;
+}
+
+.tipo-card h3 {
+    color: var(--color-beige);
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    border-bottom: 1px solid #555555;
+    padding-bottom: 5px;
+}
+
+/* --- Mapeo de Imágenes (Información) - Usando .png --- */
+
+/* Cuidados: Imagen 1 (vertical) */
+.gato-info-1 { background-image: url('../img/gato4.png'); background-size: contain; background-repeat: no-repeat; } 
+
+/* Noticias: Imagen 2 (horizontal) */
+.gato-info-2 { background-image: url('../img/gato5.png'); } 
+
+/* Tipos de Gato: Imagen 3 a 7 */
+.gato-info-3 { background-image: url('../img/gato6.png'); } /* Siamés */
+.gato-info-4 { background-image: url('../img/gato7.png'); } /* Maine Coon */
+.gato-info-5 { background-image: url('../img/gato8.png'); } /* Persa */
+.gato-info-6 { background-image: url('../img/gato9.png'); } /* Bengala */
+.gato-info-7 { background-image: url('../img/gato10.png'); } /* Sphynx */
+
+/* [Asegúrate de copiar el resto de tu código de tarjetas (.cards-grid, .card) debajo de estos estilos.] */

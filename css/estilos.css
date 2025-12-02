@@ -1,10 +1,15 @@
-/* Variables de color */
+/* Variables de color Actualizadas */
 :root {
-    --color-beige: #F5F5DC; /* Color beige para la línea del encabezado */
-    --color-verde-olivo: #808000; /* Color verde olivo para la línea del pie de página */
-    --color-fondo-oscuro: #333333; 
-    --color-card-fondo: #444444; 
-    --color-texto-claro: #FFFFFF;
+    --color-principal: #556B2F;        /* Verde Oliva Fuerte (Encabezados, Éxito, Botones) */
+    --color-fondo-claro: #FFFFFF;      /* Blanco (Cuerpo, Fondo Principal) */
+    --color-gris-claro: #D3D3D3;       /* Gris Claro (Pie de página, Fondos Secundarios) */
+    --color-gris-medio: #A9A9A9;       /* Gris Medio (Fondos de Tarjeta y Elementos) */
+    --color-texto-oscuro: #333333;     /* Texto estándar */
+    --color-texto-claro: #FFFFFF;      /* Texto sobre fondos oscuros/de color */
+    
+    /* Variables de Acción (debes mantener estas si existían) */
+    --color-peligro: #D9534F; /* Rojo para eliminar */
+    --color-exito: #5CB85C; /* Verde para activo/editar */
 }
 
 /* 🧱 Estilos Base */

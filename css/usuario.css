@@ -1,52 +1,131 @@
-/* 🧑‍💻 Estilos para la Página de Gestión de Usuarios (tablas) */
+/* Variables de color Actualizadas */
+:root {
+    --color-principal: #556B2F;        /* Verde Oliva Fuerte (Encabezados, Éxito, Botones) */
+    --color-fondo-claro: #FFFFFF;      /* Blanco (Cuerpo, Fondo Principal) */
+    --color-gris-claro: #D3D3D3;       /* Gris Claro (Pie de página, Fondos Secundarios) */
+    --color-gris-medio: #A9A9A9;       /* Gris Medio (Fondos de Tarjeta y Elementos) */
+    --color-texto-oscuro: #333333;     /* Texto estándar */
+    --color-texto-claro: #FFFFFF;      /* Texto sobre fondos oscuros/de color */
+    
+    /* Variables de Acción (debes mantener estas si existían) */
+    --color-peligro: #D9534F; /* Rojo para eliminar */
+    --color-exito: #5CB85C; /* Verde para activo/editar */
+}
+.gestion-header {
+    text-align: center;
+    color: var(--color-beige);
+    margin: 40px 0 30px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #555555;
+    font-size: 2em;
+}
 
-.contenedor-usuarios {
+/* --- Panel de Control (Búsqueda y Agregar) --- */
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
+    margin-bottom: 20px;
+    background-color: var(--color-card-fondo);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.input-busqueda {
+    padding: 10px 15px;
+    border: 1px solid #555555;
+    border-radius: 4px;
+    background-color: #555555;
+    color: var(--color-beige);
+    width: 40%;
+}
+
+.input-busqueda::placeholder {
+    color: #AAAAAA;
+}
+
+.btn-agregar {
+    padding: 10px 20px;
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-agregar:hover {
+    background-color: #6B8E23; /* Tono más oscuro de verde olivo */
+}
+
+/* --- Tabla de Usuarios --- */
+.tabla-container {
+    overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
 }
 
 .tabla-usuarios {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background-color: var(--color-card-fondo);
+    border-radius: 8px;
+    overflow: hidden; /* Para que el borde redondeado funcione bien */
+}
+
+.tabla-usuarios thead {
+    background-color: #555555;
+    color: var(--color-beige);
+}
+
+.tabla-usuarios th, .tabla-usuarios td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #555555;
+    color: #DDDDDD;
+}
+
+.tabla-usuarios tbody tr:hover {
+    background-color: #4A4A4A;
+}
+
+/* Estilos específicos para Roles y Estados */
+.rol-admin {
+    font-weight: bold;
+    color: #F0AD4E; /* Naranja/Amarillo para Admin */
+}
+
+.rol-cliente {
     color: #CCCCCC;
 }
 
-.tabla-usuarios th, 
-.tabla-usuarios td {
-    border: 1px solid #555555;
-    padding: 12px;
-    text-align: left;
-}
-
-.tabla-usuarios th {
-    background-color: #555555;
-    color: white;
+.estado-suspendido {
     font-weight: bold;
+    color: var(--color-peligro);
 }
 
-.tabla-usuarios tr:nth-child(even) {
-    background-color: #444444; /* Fondo de filas pares */
-}
-
-.tabla-usuarios tr:hover {
-    background-color: #505050; /* Resaltar fila al pasar el ratón */
-}
-
-.boton-accion {
-    padding: 5px 10px;
-    margin-right: 5px;
+/* --- Botones de Acción --- */
+.btn-accion {
+    padding: 6px 10px;
+    margin: 0 4px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 0.85em;
+    transition: opacity 0.3s;
 }
 
-.boton-editar {
-    background-color: #358ED7; /* Azul */
+.btn-accion:hover {
+    opacity: 0.8;
+}
+
+.btn-editar {
+    background-color: var(--color-exito);
     color: white;
 }
 
-.boton-eliminar {
-    background-color: #C91524; /* Rojo */
+.btn-eliminar {
+    background-color: var(--color-peligro);
     color: white;
 }
