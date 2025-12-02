@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Gestión de Usuarios - GATOS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/gato.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/footer.css">
@@ -17,8 +18,8 @@
                     <div class="card-icon"><img src="../img/gato.png" alt="Icono Gatos"></div>
                     <h1> GATOS </h1>
                     <div class="user-info">
-                        <span class="user-name"><span id="nombreUsuario">Administrador</span></span>
-                        <span class="user-role" id="rolUsuario">Admin</span>
+                        <span class="user-name"><span id="nombreUsuario">Admin</span></span>
+                        <span class="user-role" id="rolUsuario">Administrador</span>
                         <button id="btnCerrarSesion" class="btn-logout">Cerrar Sesión</button>
                     </div>
                 </div>
@@ -31,7 +32,7 @@
             
             <div class="control-panel">
                 <input type="text" id="filtroBusqueda" placeholder="Buscar por Nombre o Email..." class="input-busqueda">
-                <button class="btn-agregar" onclick="abrirFormularioAgregar()">+ Agregar Nuevo Usuario</button>
+                <button class="btn-agregar" id="btnAgregarUsuario">+ Agregar Nuevo Usuario</button>
             </div>
 
             <div class="tabla-container">
@@ -50,51 +51,69 @@
                         <tr>
                             <td>1</td>
                             <td>Juan Pérez</td>
-                            <td>juan.perez@example.com</td>
+                            <td>juan.perez@admin.com</td>
                             <td class="rol-admin">Administrador</td>
                             <td>Activo</td>
                             <td>
-                                <button class="btn-accion btn-editar">Editar</button>
-                                <button class="btn-accion btn-eliminar">Eliminar</button>
+                                <button class="btn-accion btn-editar" data-id="1">Editar</button>
+                                <button class="btn-accion btn-eliminar" data-id="1">Eliminar</button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Ana García</td>
-                            <td>ana.garcia@gmail.com</td>
-                            <td class="rol-cliente">Cliente</td>
-                            <td>Activo</td>
-                            <td>
-                                <button class="btn-accion btn-editar">Editar</button>
-                                <button class="btn-accion btn-eliminar">Eliminar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Pedro López</td>
-                            <td>pedro.lopez@yahoo.com</td>
-                            <td class="rol-cliente">Cliente</td>
-                            <td class="estado-suspendido">Suspendido</td>
-                            <td>
-                                <button class="btn-accion btn-editar">Editar</button>
-                                <button class="btn-accion btn-eliminar">Eliminar</button>
-                            </td>
-                        </tr>
-                        
                         </tbody>
                 </table>
             </div>
-            
-            </main>
+        </main>
         
+        <div id="modalUsuario" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <form id="formUsuario" class="modal-form">
+                    <h3 id="modalTitle">Agregar Nuevo Usuario</h3>
+                    
+                    <input type="hidden" id="userId" name="userId"> 
+
+                    <div class="form-group-modal">
+                        <label for="modalNombre">Nombre Completo</label>
+                        <input type="text" id="modalNombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group-modal">
+                        <label for="modalEmail">Correo Electrónico</label>
+                        <input type="email" id="modalEmail" name="email" required>
+                    </div>
+                    
+                    <div class="form-group-modal">
+                        <label for="modalRol">Rol</label>
+                        <select id="modalRol" name="rol" required>
+                            <option value="Cliente">Cliente</option>
+                            <option value="Administrador">Administrador</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-modal">
+                        <label for="modalEstado">Estado</label>
+                        <select id="modalEstado" name="estado" required>
+                            <option value="Activo">Activo</option>
+                            <option value="Suspendido">Suspendido</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group-modal" id="passwordGroup">
+                        <label for="modalPassword">Contraseña</label>
+                        <input type="password" id="modalPassword" name="password" minlength="6" placeholder="Dejar vacío si no desea cambiar">
+                    </div>
+
+                    <button type="submit" class="btn-guardar-modal">Guardar Usuario</button>
+                </form>
+            </div>
+        </div>
         <footer>
-            <div class="footer-container">
-                </div>
             <div class="footer-bottom">
                 &copy; 2025 Ramber Rojas. Todos los derechos reservados.
             </div>
         </footer>
 
     </div>
-    </body>
+    <script src="../js/usuarios.js"></script> 
+</body>
 </html>

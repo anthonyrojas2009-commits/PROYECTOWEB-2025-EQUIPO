@@ -1,26 +1,18 @@
+/* ========================================================= */
+/* CSS para PÁGINAS DE CATEGORÍAS (Listado de Productos)     */
+/* Asume que las variables de color están en estilos.css     */
+/* ========================================================= */
 
-/* Variables de color Actualizadas */
-:root {
-    --color-principal: #556B2F;        /* Verde Oliva Fuerte (Encabezados, Éxito, Botones) */
-    --color-fondo-claro: #FFFFFF;      /* Blanco (Cuerpo, Fondo Principal) */
-    --color-gris-claro: #D3D3D3;       /* Gris Claro (Pie de página, Fondos Secundarios) */
-    --color-gris-medio: #A9A9A9;       /* Gris Medio (Fondos de Tarjeta y Elementos) */
-    --color-texto-oscuro: #333333;     /* Texto estándar */
-    --color-texto-claro: #FFFFFF;      /* Texto sobre fondos oscuros/de color */
-    
-    /* Variables de Acción (debes mantener estas si existían) */
-    --color-peligro: #D9534F; /* Rojo para eliminar */
-    --color-exito: #5CB85C; /* Verde para activo/editar */
-}
 .categoria-header {
     text-align: center;
-    color: var(--color-beige);
+    color: var(--color-principal); /* Verde Oliva */
     margin: 40px 0 30px 0;
     padding-bottom: 10px;
-    border-bottom: 2px solid #555555;
+    border-bottom: 2px solid var(--color-gris-medio);
     font-size: 2em;
 }
 
+/* Contenedor principal de la cuadrícula de productos */
 .productos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -30,25 +22,26 @@
     margin: 0 auto;
 }
 
+/* Estilo de cada tarjeta de producto */
 .producto-card {
-    background-color: var(--color-card-fondo);
+    background-color: var(--color-gris-claro); /* Gris Claro */
     border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
 
 .producto-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .producto-imagen {
     width: 100%;
-    height: 200px;
+    height: 200px; 
     background-size: cover;
     background-position: center;
-    border-bottom: 1px solid #555555;
+    border-bottom: 1px solid var(--color-gris-medio);
 }
 
 .producto-contenido {
@@ -56,13 +49,13 @@
 }
 
 .producto-contenido h3 {
-    color: var(--color-beige);
+    color: var(--color-principal); /* Verde Oliva */
     margin-bottom: 8px;
     font-size: 1.5em;
 }
 
 .producto-contenido p {
-    color: #CCCCCC;
+    color: var(--color-texto-oscuro);
     font-size: 0.95em;
     margin-bottom: 10px;
 }
@@ -71,6 +64,6 @@
     display: block;
     font-size: 1.2em;
     font-weight: bold;
-    color: #808000;
+    color: var(--color-principal); /* Verde Oliva para el precio */
     margin-top: 10px;
 }
