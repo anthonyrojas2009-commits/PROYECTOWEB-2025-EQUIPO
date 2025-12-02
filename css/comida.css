@@ -1,0 +1,69 @@
+/* ========================================================= */
+/* CSS para PÁGINAS DE CATEGORÍAS (Listado de Productos)     */
+/* Asume que las variables de color están en estilos.css     */
+/* ========================================================= */
+
+.categoria-header {
+    text-align: center;
+    color: var(--color-principal); /* Verde Oliva */
+    margin: 40px 0 30px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-gris-medio);
+    font-size: 2em;
+}
+
+/* Contenedor principal de la cuadrícula de productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo de cada tarjeta de producto */
+.producto-card {
+    background-color: var(--color-gris-claro); /* Gris Claro */
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 200px; 
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--color-gris-medio);
+}
+
+.producto-contenido {
+    padding: 15px;
+}
+
+.producto-contenido h3 {
+    color: var(--color-principal); /* Verde Oliva */
+    margin-bottom: 8px;
+    font-size: 1.5em;
+}
+
+.producto-contenido p {
+    color: var(--color-texto-oscuro);
+    font-size: 0.95em;
+    margin-bottom: 10px;
+}
+
+.producto-precio {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-principal); /* Verde Oliva para el precio */
+    margin-top: 10px;
+}

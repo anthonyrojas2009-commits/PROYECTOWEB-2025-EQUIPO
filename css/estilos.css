@@ -1,67 +1,128 @@
-/* Variables de color */
+/* ========================================================= */
+/* 1. VARIABLES GLOBALES Y ESTILOS BASE (PALETA CLARA)       */
+/* ========================================================= */
+
 :root {
-    --color-beige: #F5F5DC; /* Color beige para la línea del encabezado */
-    --color-verde-olivo: #808000; /* Color verde olivo para la línea del pie de página */
-    --color-fondo-oscuro: #333333; 
-    --color-card-fondo: #444444; 
-    --color-texto-claro: #FFFFFF;
+    /* Paleta de Colores Principal (Verde Oliva, Blanco, Gris) */
+    --color-principal: #556B2F;        /* Verde Oliva Fuerte (Encabezados, Botones, Links principales) */
+    --color-fondo-claro: #FFFFFF;      /* Blanco (Cuerpo, Fondo Principal) */
+    --color-gris-claro: #D3D3D3;       /* Gris Claro (Pie de página, Fondos Secundarios) */
+    --color-gris-medio: #A9A9A9;       /* Gris Medio (Fondos de Tarjeta y Elementos de Contraste) */
+    --color-texto-oscuro: #333333;     /* Texto estándar (negro suave) */
+    --color-texto-claro: #FFFFFF;      /* Texto sobre fondos oscuros/de color */
+    
+    /* Variables de Acción */
+    --color-peligro: #D9534F;          /* Rojo para eliminar */
+    --color-exito: #5CB85C;            /* Verde para activo/editar */
+    --color-link-default: #1E90FF;     /* Azul para links no temáticos */
 }
 
-/* 🧱 Estilos Base */
+/* Estilos Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+body, html {
     font-family: Arial, sans-serif;
-    background-color: var(--color-fondo-oscuro); 
-    color: var(--color-texto-claro);
+    background-color: var(--color-fondo-claro); /* Fondo Blanco */
+    color: var(--color-texto-oscuro);
     min-height: 100vh;
+}
+
+/* Contenedor principal para las páginas con header y footer */
+.escritorio-container {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* ⬆️ Encabezado (Línea Beige) */
-.header {
-    background-color: var(--color-fondo-oscuro);
-    padding-bottom: 5px; 
-    position: relative;
-}
-
-/* Línea decorativa del encabezado: BEIGE */
-.header::after {
-    content: "";
-    display: block;
-    height: 5px;
-    background-color: var(--color-beige);
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-/* Contenido Principal */
 .main-content {
-    flex-grow: 1; 
+    flex-grow: 1; /* Permite que el contenido principal ocupe todo el espacio disponible */
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.welcome-section {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 15px;
-    background-color: #404040;
-    border-radius: 8px;
+/* Botón de Cerrar Sesión (Estilo global) */
+.btn-logout {
+    padding: 8px 15px;
+    background-color: var(--color-peligro);
+    color: var(--color-texto-claro);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
-.welcome-section h2 {
-    color: var(--color-beige); /* Usamos beige para destacar el saludo */
-    margin-bottom: 5px;
+.btn-logout:hover {
+    background-color: #C9302C; /* Rojo más oscuro */
+}
+
+/* ========================================================= */
+/* 2. HEADER (Común a escritorio y categorías)               */
+/* ========================================================= */
+
+.header {
+    background-color: var(--color-principal); /* Verde Oliva para la barra superior */
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.card.header-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-principal); /* Mismo color que el header */
+    color: var(--color-texto-claro);
+    padding: 10px 0;
+    cursor: pointer;
+    border-radius: 0; /* Sin bordes redondeados en el header */
+    box-shadow: none;
+}
+
+.card-icon img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.header-card h1 {
+    font-size: 1.8em;
+    font-weight: 900;
+    flex-grow: 1;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-name, .user-role {
+    font-weight: bold;
+}
+
+/* Media Queries para el Header */
+@media (max-width: 768px) {
+    .header-card h1 {
+        font-size: 1.5em;
+    }
+    .user-info {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+    }
+    .user-name, .user-role {
+        font-size: 0.9em;
+    }
 }

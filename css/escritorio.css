@@ -1,94 +1,193 @@
-/* 🖼️ Estilos para la Vista de Escritorio (Diseño de Tarjetas) */
+/* ========================================================= */
+/* 2. CSS ESCRITORIO / DASHBOARD                             */
+/* ========================================================= */
 
-/* Contenedor principal de las tarjetas */
-.cards-grid {
+/* --- General de Contenido --- */
+.welcome-section {
+    text-align: center;
+    padding: 30px 0;
+    background-color: var(--color-gris-claro); /* Fondo de bienvenida gris claro */
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+.welcome-section h2 {
+    color: var(--color-principal);
+    margin-bottom: 10px;
+}
+
+.seccion-titulo {
+    text-align: center;
+    color: var(--color-principal); /* Verde Oliva */
+    margin: 40px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-gris-medio);
+    font-size: 2em;
+}
+
+/* --- Carrusel Vertical (Clases de Imagenes deben estar en estilos.css) --- */
+.carrusel-vertical-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* ... resto de estilos del carrusel ... */
+
+
+/* --- Secciones de Artículo y Tipos --- */
+.intro-group {
     display: flex;
-    flex-wrap: wrap; 
-    gap: 25px; 
-    justify-content: center; 
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: var(--color-gris-claro); /* Gris Claro */
+    border-radius: 8px;
+}
+.intro-texto {
+    flex: 1;
+}
+.intro-texto h3 {
+    color: var(--color-principal);
+    margin-bottom: 10px;
+}
+.intro-part1 {
+    border-right: 1px solid var(--color-gris-medio); /* Separador sutil */
+    padding-right: 20px;
+}
+
+/* --- Cuidados y Noticias --- */
+.cuidados-container, .noticias-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding: 30px;
+    background-color: var(--color-fondo-claro); /* Blanco */
+    border: 1px solid var(--color-gris-claro);
+    border-radius: 8px;
+}
+
+.cuidados-container.layout-derecha {
+    flex-direction: row;
+}
+.noticias-container.layout-izquierda {
+    flex-direction: row-reverse;
+}
+
+.cuidados-lista, .noticias-resumen {
+    flex: 1;
+    color: var(--color-texto-oscuro);
+}
+
+.cuidados-lista ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.cuidados-lista ul li {
+    background-color: var(--color-gris-claro); /* Gris Claro para los items de la lista */
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+
+/* --- Tipos de Gatos (Grid) --- */
+.tipos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
     margin-bottom: 40px;
 }
 
-/* Estilo de cada tarjeta (MUEBLES, ROPA, etc.) */
-.card {
-    background-color: var(--color-card-fondo); /* Gris oscuro */
-    width: 250px; 
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.tipo-card {
+    background-color: var(--color-gris-claro); /* Gris Claro */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
-
-.card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
-    background-color: #555555; 
+.tipo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
-/* 🖼️ Icono/Imagen de la tarjeta */
-.card-icon {
+.tipo-card h3 {
+    color: var(--color-principal);
+    padding: 10px 15px;
+}
+.tipo-card p {
+    padding: 0 15px 15px;
+}
+/* Clases para imágenes de tipo-card (Se recomienda usar CSS para fondos) */
+.tipo-imagen {
     width: 100%;
-    height: 100px; 
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
 }
 
-/* Acomodar y hacer pequeñas las imágenes (c1.png, c2.png, etc.) */
-.card-icon img {
-    max-width: 80px; 
-    max-height: 80px;
-    object-fit: contain; 
-    border-radius: 50%; /* Opcional: para darles forma circular */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+/* --- Grid de Categorías Originales (MUEBLES, ROPA, etc.) --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    padding-bottom: 40px;
 }
 
-.card h3 {
-    color: var(--color-beige);
-    margin-bottom: 5px;
-    font-size: 1.3em;
-}
-
-.card p {
-    color: #CCCCCC;
-    font-size: 0.9em;
-}
-
-/* Estilos específicos para la tarjeta superior (GATOS) */
-.header .card {
-    background-color: #555555; 
-    width: auto; 
-    padding: 10px 30px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.header .card h1 {
-    font-size: 1.8em;
-    margin: 0 20px;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.btn-logout {
-    background-color: var(--color-verde-olivo);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
+.cards-grid .card {
+    background-color: var(--color-gris-medio); /* Gris Medio */
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.btn-logout:hover {
-    background-color: #6B6B00;
+.cards-grid .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cards-grid .card-icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.cards-grid .card h3 {
+    color: var(--color-principal);
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.cards-grid .card p {
+    color: var(--color-texto-oscuro);
+    font-size: 0.85em;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .intro-group {
+        flex-direction: column;
+    }
+    .intro-part1 {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid var(--color-gris-medio);
+        padding-bottom: 15px;
+    }
+    .cuidados-container, .noticias-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .noticias-container.layout-izquierda {
+        flex-direction: column; /* Deshacer el row-reverse para móviles */
+    }
+    .cuidados-imagen, .noticias-imagen {
+        max-width: 100%;
+        height: 200px;
+    }
 }

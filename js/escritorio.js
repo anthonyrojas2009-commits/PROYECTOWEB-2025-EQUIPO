@@ -33,6 +33,7 @@ function cargarInfoUsuario() {
 }
 
 
+
 // Cerrar sesión
 function cerrarSesion() {
   localStorage.removeItem('usuarioActivo');

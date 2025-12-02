@@ -1,237 +1,181 @@
-// Variables globales
-const modal = document.getElementById('modalRegistro');
-const btnAbrirModal = document.getElementById('btnAbrirModal');
-const btnCerrarModal = document.querySelector('.close');
-const btnCancelar = document.getElementById('btnCancelar');
-const registroForm = document.getElementById('registroForm');
-
-
-// Cargar todos los usuarios
-async function cargarTodosUsuarios() {
-  try {
-    // Cargar usuarios del JSON
-    const response = await fetch('../data/usuarios.json');
-    const data = await response.json();
-    let usuarios = data.usuarios.map(u => ({...u, origen: 'JSON'}));
-    
-    // Cargar usuarios de localStorage
-    const usuariosLocal = localStorage.getItem('usuariosAdicionales');
-    if (usuariosLocal) {
-      const usuariosAdicionales = JSON.parse(usuariosLocal).map(u => ({...u, origen: 'LocalStorage'}));
-      usuarios = [...usuarios, ...usuariosAdicionales];
-    }
-    
-    return usuarios;
-  } catch (error) {
-    console.error('Error al cargar usuarios:', error);
-    return [];
-  }
-}
-
-
-// Mostrar usuarios en la tabla
-async function mostrarUsuarios() {
-  const usuarios = await cargarTodosUsuarios();
-  const tbody = document.getElementById('tablaUsuariosBody');
-  
-  tbody.innerHTML = '';
-  
-  // Calcular estadísticas
-  const totalUsuarios = usuarios.length;
-  const totalAdmins = usuarios.filter(u => u.rol === 'admin').length;
-  const totalRegulares = usuarios.filter(u => u.rol === 'usuario').length;
-  
-  document.getElementById('totalUsuarios').textContent = totalUsuarios;
-  document.getElementById('totalAdmins').textContent = totalAdmins;
-  document.getElementById('totalRegulares').textContent = totalRegulares;
-  
-  // Llenar tabla
-  usuarios.forEach(usuario => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${usuario.id}</td>
-      <td><strong>${usuario.usuario}</strong></td>
-      <td>${usuario.nombre}</td>
-      <td><span class="badge badge-${usuario.rol}">${usuario.rol.toUpperCase()}</span></td>
-      <td><span class="badge badge-${usuario.origen === 'JSON' ? 'json' : 'local'}">${usuario.origen}</span></td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
-
-
-// Función para generar ID único
-function generarId() {
-  const usuariosLocal = localStorage.getItem('usuariosAdicionales');
-  if (usuariosLocal) {
-    const usuarios = JSON.parse(usuariosLocal);
-    const maxId = Math.max(...usuarios.map(u => u.id), 3);
-    return maxId + 1;
-  }
-  return 4;
-}
-
-
-// Función para verificar si el usuario ya existe
-async function usuarioExiste(nombreUsuario) {
-  const usuarios = await cargarTodosUsuarios();
-  return usuarios.some(u => u.usuario === nombreUsuario);
-}
-
-
-// Función para mostrar mensajes
-function mostrarMensaje(texto, tipo) {
-  const mensajeDiv = document.getElementById('mensaje');
-  mensajeDiv.textContent = texto;
-  mensajeDiv.className = `mensaje ${tipo}`;
-  
-  // Ocultar mensaje después de 5 segundos
-  setTimeout(() => {
-    mensajeDiv.style.display = 'none';
-  }, 5000);
-}
-
-
-// Función para registrar usuario
-async function registrarUsuario(datosUsuario) {
-  try {
-    let usuariosAdicionales = [];
-    const usuariosLocal = localStorage.getItem('usuariosAdicionales');
-    
-    if (usuariosLocal) {
-      usuariosAdicionales = JSON.parse(usuariosLocal);
-    }
-    
-    usuariosAdicionales.push(datosUsuario);
-    localStorage.setItem('usuariosAdicionales', JSON.stringify(usuariosAdicionales));
-    
-    return true;
-  } catch (error) {
-    console.error('Error al registrar usuario:', error);
-    return false;
-  }
-}
-
-
-// Abrir modal
-function abrirModal() {
-  modal.style.display = 'block';
-  document.body.style.overflow = 'hidden'; // Prevenir scroll del body
-}
-
-
-// Cerrar modal
-function cerrarModal() {
-  modal.style.display = 'none';
-  document.body.style.overflow = 'auto';
-  registroForm.reset();
-  document.getElementById('mensaje').style.display = 'none';
-}
-
-
-// Event Listeners del modal
-btnAbrirModal.addEventListener('click', abrirModal);
-btnCerrarModal.addEventListener('click', cerrarModal);
-btnCancelar.addEventListener('click', cerrarModal);
-
-
-// Cerrar modal al hacer click fuera de él
-window.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    cerrarModal();
-  }
-});
-
-
-// Cerrar modal con la tecla ESC
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.style.display === 'block') {
-    cerrarModal();
-  }
-});
-
-
-// Manejo del formulario de registro
-registroForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  const nombre = document.getElementById('nombre').value.trim();
-  const usuario = document.getElementById('usuario').value.trim();
-  const password = document.getElementById('password').value;
-  const confirmarPassword = document.getElementById('confirmarPassword').value;
-  const rol = document.getElementById('rol').value;
-  
-  // Validaciones
-  if (password !== confirmarPassword) {
-    mostrarMensaje('❌ Las contraseñas no coinciden', 'error');
-    return;
-  }
-  
-  if (password.length < 6) {
-    mostrarMensaje('❌ La contraseña debe tener al menos 6 caracteres', 'error');
-    return;
-  }
-  
-  if (usuario.length < 4) {
-    mostrarMensaje('❌ El usuario debe tener al menos 4 caracteres', 'error');
-    return;
-  }
-  
-  // Verificar si el usuario ya existe
-  const existe = await usuarioExiste(usuario);
-  if (existe) {
-    mostrarMensaje('❌ El nombre de usuario ya está en uso', 'error');
-    return;
-  }
-  
-  // Crear objeto usuario
-  const nuevoUsuario = {
-    id: generarId(),
-    usuario: usuario,
-    password: password,
-    nombre: nombre,
-    rol: rol
-  };
-  
-  // Registrar usuario
-  const registrado = await registrarUsuario(nuevoUsuario);
-  
-  if (registrado) {
-    mostrarMensaje('✅ Usuario registrado exitosamente', 'exito');
-    
-    // Actualizar tabla
-    await mostrarUsuarios();
-    
-    // Cerrar modal después de 1.5 segundos
-    setTimeout(() => {
-      cerrarModal();
-    }, 1500);
-  } else {
-    mostrarMensaje('❌ Error al registrar usuario. Intenta de nuevo.', 'error');
-  }
-});
-
-
-// Verificar sesión
-function verificarSesion() {
-  const usuarioGuardado = localStorage.getItem('usuarioActivo');
-  if (!usuarioGuardado) {
-    window.location.href = '../index.html';
-  }
-}
-
-
-// Cerrar sesión
-function cerrarSesion() {
-  localStorage.removeItem('usuarioActivo');
-  window.location.href = '../index.html';
-}
-
-
-// Inicializar
 document.addEventListener('DOMContentLoaded', () => {
-  verificarSesion();
-  mostrarUsuarios();
-  
-  document.getElementById('btnCerrarSesion').addEventListener('click', cerrarSesion);
+    
+    // --- 1. Variables Globales y Selectores del DOM ---
+    const tablaCuerpo = document.querySelector('.tabla-usuarios tbody');
+    const filtroBusqueda = document.getElementById('filtroBusqueda');
+    const btnAgregar = document.querySelector('.btn-agregar');
+    
+    const modal = document.getElementById('modalUsuario');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeBtn = document.querySelector('.close-btn');
+    const formUsuario = document.getElementById('formUsuario');
+    const passwordGroup = document.getElementById('passwordGroup');
+    
+    // Almacenamiento simulado de datos de usuarios
+    let usuarios = [
+        { id: 1, nombre: 'Juan Pérez', email: 'juan.perez@admin.com', rol: 'Administrador', estado: 'Activo' },
+        { id: 2, nombre: 'Ana García', email: 'ana.garcia@cliente.com', rol: 'Cliente', estado: 'Activo' },
+        { id: 3, nombre: 'Pedro López', email: 'pedro.lopez@yahoo.com', rol: 'Cliente', estado: 'Suspendido' },
+        { id: 4, nombre: 'Maria Rodriguez', email: 'maria.r@tienda.com', rol: 'Cliente', estado: 'Activo' }
+    ];
+
+    let nextId = 5; // ID para el próximo usuario a agregar
+
+    // --- 2. Funciones de Renderizado y Filtro ---
+
+    function renderizarTabla(listaUsuarios) {
+        tablaCuerpo.innerHTML = ''; // Limpiar contenido anterior
+
+        listaUsuarios.forEach(usuario => {
+            const row = tablaCuerpo.insertRow();
+            
+            // Asignar clases para estilos de color basados en rol/estado
+            const rolClass = usuario.rol === 'Administrador' ? 'rol-admin' : 'rol-cliente';
+            const estadoClass = usuario.estado === 'Suspendido' ? 'estado-suspendido' : '';
+
+            row.innerHTML = `
+                <td>${usuario.id}</td>
+                <td>${usuario.nombre}</td>
+                <td>${usuario.email}</td>
+                <td class="${rolClass}">${usuario.rol}</td>
+                <td class="${estadoClass}">${usuario.estado}</td>
+                <td>
+                    <button class="btn-accion btn-editar" data-id="${usuario.id}">Editar</button>
+                    <button class="btn-accion btn-eliminar" data-id="${usuario.id}">Eliminar</button>
+                </td>
+            `;
+        });
+        // Después de renderizar, adjuntar listeners a los nuevos botones
+        adjuntarListenersAcciones();
+    }
+
+    function filtrarUsuarios() {
+        const busqueda = filtroBusqueda.value.toLowerCase();
+        const usuariosFiltrados = usuarios.filter(usuario => 
+            usuario.nombre.toLowerCase().includes(busqueda) ||
+            usuario.email.toLowerCase().includes(busqueda)
+        );
+        renderizarTabla(usuariosFiltrados);
+    }
+
+    // --- 3. Funciones del Modal y CRUD (Simulado) ---
+
+    function abrirModal(usuarioId = null) {
+        formUsuario.reset(); // Limpiar formulario
+        passwordGroup.style.display = 'block'; // Mostrar siempre el campo de contraseña por defecto
+
+        if (usuarioId) {
+            // Modo Edición
+            const usuario = usuarios.find(u => u.id == usuarioId);
+            if (usuario) {
+                modalTitle.textContent = 'Editar Usuario: ' + usuario.nombre;
+                
+                // Llenar el formulario con datos del usuario
+                document.getElementById('userId').value = usuario.id;
+                document.getElementById('modalNombre').value = usuario.nombre;
+                document.getElementById('modalEmail').value = usuario.email;
+                document.getElementById('modalRol').value = usuario.rol;
+                document.getElementById('modalEstado').value = usuario.estado;
+                
+                // Ocultar el campo de contraseña en edición (el usuario debe cambiarla por separado)
+                passwordGroup.style.display = 'none'; 
+            }
+        } else {
+            // Modo Agregar
+            modalTitle.textContent = 'Agregar Nuevo Usuario';
+            document.getElementById('userId').value = ''; 
+        }
+        modal.style.display = 'block';
+    }
+
+    function cerrarModal() {
+        modal.style.display = 'none';
+    }
+
+    function guardarUsuario(event) {
+        event.preventDefault();
+
+        // 1. Obtener datos del formulario
+        const id = document.getElementById('userId').value;
+        const nombre = document.getElementById('modalNombre').value;
+        const email = document.getElementById('modalEmail').value;
+        const rol = document.getElementById('modalRol').value;
+        const estado = document.getElementById('modalEstado').value;
+        const password = document.getElementById('modalPassword').value;
+
+        // Validación simple (Deberías mejorarla con la lógica de registro.js)
+        if (!nombre || !email || !rol || !estado) {
+            alert("Todos los campos son obligatorios.");
+            return;
+        }
+
+        if (!id && password.length < 6) {
+             alert("La contraseña es obligatoria y debe tener al menos 6 caracteres.");
+             return;
+        }
+
+        // 2. Lógica de Guardado/Actualización
+        if (id) {
+            // Actualizar usuario existente
+            const index = usuarios.findIndex(u => u.id == id);
+            if (index !== -1) {
+                usuarios[index] = { id: Number(id), nombre, email, rol, estado };
+                alert(`Usuario ${nombre} actualizado con éxito.`);
+            }
+        } else {
+            // Agregar nuevo usuario
+            const nuevoUsuario = { id: nextId++, nombre, email, rol, estado };
+            usuarios.push(nuevoUsuario);
+            alert(`Usuario ${nombre} agregado con éxito. Contraseña: ${password} (SIMULADO)`);
+        }
+        
+        // 3. Cerrar y actualizar la vista
+        cerrarModal();
+        renderizarTabla(usuarios);
+    }
+
+    function eliminarUsuario(usuarioId) {
+        if (confirm(`¿Estás seguro de que deseas eliminar el usuario con ID ${usuarioId}?`)) {
+            usuarios = usuarios.filter(u => u.id != usuarioId);
+            renderizarTabla(usuarios);
+            alert("Usuario eliminado.");
+        }
+    }
+
+    // --- 4. Event Listeners ---
+
+    // Listener para el botón global de Agregar
+    btnAgregar.addEventListener('click', () => abrirModal());
+    
+    // Listeners para cerrar el modal
+    closeBtn.addEventListener('click', cerrarModal);
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            cerrarModal();
+        }
+    });
+
+    // Listener para guardar el formulario del modal
+    formUsuario.addEventListener('submit', guardarUsuario);
+
+    // Listener para el filtro de búsqueda
+    filtroBusqueda.addEventListener('keyup', filtrarUsuarios);
+
+    // Adjuntar listeners a botones de Editar/Eliminar (dinámicamente)
+    function adjuntarListenersAcciones() {
+        document.querySelectorAll('.btn-editar').forEach(button => {
+            button.addEventListener('click', (e) => {
+                abrirModal(e.target.dataset.id);
+            });
+        });
+
+        document.querySelectorAll('.btn-eliminar').forEach(button => {
+            button.addEventListener('click', (e) => {
+                eliminarUsuario(e.target.dataset.id);
+            });
+        });
+    }
+
+    // --- 5. Inicialización ---
+    renderizarTabla(usuarios);
 });

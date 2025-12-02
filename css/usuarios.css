@@ -1,0 +1,110 @@
+/* ========================================================= */
+/* ESTILOS PARA MODAL DE AGREGAR/EDITAR USUARIO              */
+/* ========================================================= */
+
+/* Contenedor principal del modal (oculto por defecto) */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; 
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente oscuro */
+    padding-top: 60px;
+}
+
+/* Contenido del Modal (La tarjeta o ventana en sí) */
+.modal-content {
+    background-color: var(--color-gris-claro); /* Fondo gris claro */
+    margin: 5% auto; /* 5% desde arriba y centrado horizontalmente */
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%; 
+    max-width: 500px; /* Ancho máximo estándar */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Animación para que el modal aparezca desde arriba */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+/* Botón de cerrar (la 'x' en la esquina) */
+.close-btn {
+    color: var(--color-texto-oscuro);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--color-peligro); /* Rojo */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos para el formulario dentro del modal */
+.modal-form h3 {
+    color: var(--color-principal); /* Verde Oliva */
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-gris-medio);
+    padding-bottom: 5px;
+}
+
+.form-group-modal {
+    margin-bottom: 15px;
+}
+
+.form-group-modal label {
+    display: block;
+    color: var(--color-texto-oscuro);
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group-modal input[type="text"],
+.form-group-modal input[type="email"],
+.form-group-modal input[type="password"],
+.form-group-modal select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-gris-medio);
+    border-radius: 5px;
+    background-color: var(--color-fondo-claro); /* Blanco */
+    color: var(--color-texto-oscuro);
+    box-sizing: border-box;
+}
+
+.form-group-modal input:focus, .form-group-modal select:focus {
+    border-color: var(--color-principal);
+    outline: none;
+    box-shadow: 0 0 5px rgba(85, 107, 47, 0.5);
+}
+
+.btn-guardar-modal {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: var(--color-principal); /* Verde Oliva */
+    color: var(--color-texto-claro);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-guardar-modal:hover {
+    background-color: #6B8E23;
+}

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Escritorio - Mi Proyecto</title>
     <link rel="shortcut icon" href="../img/gato.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/escritorio.css">
     <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/escritorio.css">
     <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
@@ -13,21 +13,114 @@
         
         <header class="header">
             <div class="header-content">
-                <div class="card" onclick="window.location.href='escritorio.html'">
-                    <div class="card-icon"><img src="../img/gato.png" alt="Icono Gatos"></div>
+                <div class="card header-card" onclick="window.location.href='escritorio.html'">
+                    <div class="card-icon"><img src="../img/gato.png" alt="Icono principal Gatos"></div>
                     <h1> GATOS </h1>
                     <div class="user-info">
                         <span class="user-name"><span id="nombreUsuario"></span></span>
                         <span class="user-role" id="rolUsuario"></span>
                         <button id="btnCerrarSesion" class="btn-logout">Cerrar Sesión</button>
                     </div>
-                </div> </div> </header>
+                </div>
+            </div>
+        </header>
 
         <main class="main-content">
             <div class="welcome-section">
-                <h2>¡Bienvenido, <span id="nombreUsuarioBienvenida"></span>! </h2>
-                <p>Has iniciado sesión correctamente en el sistema.</p>
+                <h2>¡Bienvenido, <span id="nombreUsuarioBienvenida"></span>!</h2>
+                <p>Explora la guía completa sobre el cuidado y bienestar felino.</p>
             </div>
+
+            <div class="carrusel-vertical-container">
+                <div class="carrusel-vertical">
+                    <div class="carrusel-item gato-carrusel-1"></div>
+                    <div class="carrusel-item gato-carrusel-2"></div>
+                    <div class="carrusel-item gato-carrusel-3"></div>
+                </div>
+            </div>
+            <section class="info-articulos">
+                
+                <h2 class="seccion-titulo principal">Fundamentos del Felino Doméstico</h2>
+                
+                <div class="intro-group">
+                    <div class="intro-texto intro-part1">
+                        <h3>Evolución y Adaptación</h3>
+                        <p>La relación entre los seres humanos y los gatos ha evolucionado a lo largo de miles de años, pasando de la simple convivencia en aldeas agrícolas hasta convertirse en una de las mascotas más apreciadas del mundo. Los gatos destacan por su **inteligencia**, su **comportamiento independiente** y su capacidad de adaptarse a diferentes ambientes, desde hogares pequeños hasta espacios amplios.</p>
+                    </div>
+                    
+                    <div class="intro-texto intro-part2">
+                        <h3>Avances y Responsabilidad Moderna</h3>
+                        <p>En la actualidad, el interés científico y social por los gatos ha aumentado considerablemente. Estudios recientes han permitido comprender mejor su comportamiento, su comunicación y sus necesidades físicas y emocionales. Conocer las novedades, sus **cuidados esenciales** y las características de sus principales tipos, permite entenderlos de manera más profunda y mejorar su calidad de vida.</p>
+                    </div>
+                </div>
+
+                <h2 class="seccion-titulo">Guía de Cuidados Esenciales</h2>
+                
+                <div class="cuidados-container layout-derecha">
+                    
+                    <div class="cuidados-lista">
+                        <p class="cuidados-resumen">El cuidado del gato requiere acciones simples pero fundamentales para su bienestar:</p>
+                        <ul>
+                            <li>**Nutrición Óptima:** Mantener una alimentación de calidad, adecuada a su edad y condición física.</li>
+                            <li>**Hidratación:** Asegurar una buena ingesta de agua para prevenir problemas renales.</li>
+                            <li>**Higiene del Entorno:** Limpiar la caja de arena a diario previene malos olores y reduce el estrés del animal.</li>
+                            <li>**Estimulación y Juego:** El juego diario previene la ansiedad y promueve el ejercicio.</li>
+                            <li>**Salud Preventiva:** Visitas regulares al veterinario para vacunas, desparasitación y detección temprana de enfermedades.</li>
+                        </ul>
+                    </div>
+                    <div class="cuidados-imagen gato-info-1"></div> 
+                </div>
+                
+                <h2 class="seccion-titulo">Investigación y Novedades Felinas</h2>
+                
+                <div class="noticias-container layout-izquierda">
+                    
+                    <div class="noticias-imagen gato-info-2"></div>
+                    
+                    <div class="noticias-resumen">
+                        <p>Las investigaciones más recientes sobre comportamiento indican que los gatos son capaces de **reconocer su nombre y diferenciar voces familiares**, un signo de alta inteligencia social.</p>
+                        <p>En el ámbito social, las **adopciones en zonas urbanas han aumentado** significativamente, confirmando la adaptabilidad del gato a espacios reducidos.</p>
+                        <p>Un avance fisiológico importante surge del estudio del **ronroneo**, que, más allá de la satisfacción, funciona como un mecanismo de **autocuración** gracias a la frecuencia vibratoria que promueve la regeneración ósea y muscular.</p>
+                    </div>
+                </div>
+                
+                <h2 class="seccion-titulo">Razas Destacadas</h2>
+                <div class="tipos-grid">
+                    
+                    <article class="tipo-card">
+                        <div class="tipo-imagen gato-info-3"></div>
+                        <h3>Siamés</h3>
+                        <p>Raza **vocal, sociable y muy activa**, conocida por sus extremidades oscuras y ojos azul intenso. Disfruta de la interacción constante y es ideal para hogares dinámicos.</p>
+                    </article>
+                    
+                    <article class="tipo-card">
+                        <div class="tipo-imagen gato-info-4"></div>
+                        <h3>Maine Coon</h3>
+                        <p>Una de las razas domésticas más grandes. Es **tranquilo, afectuoso y paciente**, perfecto para familias. Su pelaje denso requiere cepillados frecuentes.</p>
+                    </article>
+                    
+                    <article class="tipo-card">
+                        <div class="tipo-imagen gato-info-5"></div>
+                        <h3>Persa</h3>
+                        <p>Temperamento **calmado y hogareño**. Requiere cuidados diarios de su abundante pelaje y vigilancia por su conformación facial (problemas respiratorios).</p>
+                    </article>
+
+                    <article class="tipo-card">
+                        <div class="tipo-imagen gato-info-6"></div>
+                        <h3>Bengala</h3>
+                        <p>Raza **enérgica y extremadamente inteligente** con un patrón moteado tipo leopardo. Necesita entornos ricos en estímulos y juegos frecuentes para su bienestar mental.</p>
+                    </article>
+                    
+                    <article class="tipo-card">
+                        <div class="tipo-imagen gato-info-7"></div>
+                        <h3>Sphynx</h3>
+                        <p>Reconocido por su **ausencia de pelaje**. Es muy afectuoso y busca el calor humano. Requiere baños frecuentes y cuidado especial de su piel.</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <h2 class="seccion-titulo" style="margin-top: 40px;">Explora Nuestras Categorías de Productos</h2>
 
             <div class="cards-grid">
                 
@@ -60,8 +153,12 @@
                     <h3>JUGUETES</h3>
                     <p>Garantiza la diversion de tu gato</p>
                 </div>
+            </div>
+        </main> 
 
-            </div> </main> </div> <footer>
+    </div>
+
+    <footer>
         <div class="footer-container">
             <div class="footer-col">
                 <h3>Sobre la Web</h3>
@@ -84,7 +181,8 @@
         <div class="footer-bottom">
             &copy; 2025 Ramber Rojas. Todos los derechos reservados.
         </div>
-    </footer> <script src="../js/escritorio.js"></script>
+    </footer>
 
+    <script src="../js/escritorio.js"></script>
 </body>
 </html>

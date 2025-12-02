@@ -1,126 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-<title>Registro de Usuario</title>
-<link rel="shortcut icon" href="../img/gato.png" type="image/x-icon">
-<link rel="stylesheet" href="../css/registro.css">
-<link rel="stylesheet" href="../css/escritorio.css">
-<link rel="stylesheet" href="../css/estilos.css">
-    <link rel="stylesheet" href="../css/footer.css">
-
-
+    <title>Registro de Usuario - GATOS</title>
+    <link rel="shortcut icon" href="../img/gato.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/estilos.css"> 
+    <link rel="stylesheet" href="../css/registro.css">
+    <script src="../js/registro.js"></script>
 </head>
 <body>
-  <div class="registro-container">
-  <!-- Header -->
-  <header class="header">
-    <div class="header-content">
-      <div class="cards-grid">
-      <div class="card" onclick="window.location.href='escritorio.html'">
-        <div class="card-icon"><img src="../img/gato.png"></div>
-      <h1> REGISTRO </h1>
-      <div class="user-info">
-        <span class="user-name"><span id="nombreUsuario"></span></span>
-      <span class="user-role" id="rolUsuario"></span>
-        <button id="btnCerrarSesion" class="btn-logout">Cerrar Sesión</button>
-      </div>
-    </div>
-  </header>
-     </div>
-    <div class="container">
-  <div class="registro-box">
-    <h1> Registro de Usuario</h1>
     
-    <form id="registroForm">
-      <div class="input-group">
-        <label for="nombre">Nombre Completo</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
-      </div>
-      
-      <div class="input-group">
-        <label for="usuario">Usuario</label>
-        <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" required minlength="4">
-        <small>Mínimo 4 caracteres</small>
-      </div>
-      
-      <div class="input-group">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" placeholder="Contraseña segura" required minlength="6">
-        <small>Mínimo 6 caracteres</small>
-      </div>
-      
-      <div class="input-group">
-        <label for="confirmarPassword">Confirmar Contraseña</label>
-        <input type="password" id="confirmarPassword" name="confirmarPassword" placeholder="Repite la contraseña" required>
-      </div>
-      
-      <div class="input-group">
-        <label for="rol">Rol</label>
-        <select id="rol" name="rol" required>
-          <option value="">Selecciona un rol</option>
-          <option value="usuario">Usuario</option>
-          <option value="admin">Administrador</option>
-        </select>
-      </div>
-      
-      <button type="submit">Registrar Usuario</button>
-      
-      <div id="mensaje" class="mensaje"></div>
-    </form>
-    
-    <div class="login-link">
-      <p>¿Ya tienes cuenta? <a href="../index.html">Inicia sesión aquí</a></p>
-    </div>
-  </div>
-</div>
-<script src="../js/registro.js"></script> 
+    <div class="registro-container">
+        
+        <div class="registro-card">
+            <div class="registro-header">
+                <img src="../img/gato.png" alt="Logo Gato" class="logo-registro">
+                <h2>Crea tu Cuenta</h2>
+            </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<footer>
-    <div class="footer-container">
-        <!-- Columna 1: Sobre la web -->
-        <div class="footer-col">
-            <h3>Sobre la Web</h3>
-            <p>Esta web es un proyecto grupal en el cual se demuestra el amor a los gatitos.</p>
-            <ul>
-                 <li><a href="escritorio.html">Inicio</a></li>
+            <form id="formularioRegistro" class="formulario-registro">
                 
-            </ul>
-        </div>
+                <div class="form-group">
+                    <label for="nombreCompleto">Nombre Completo</label>
+                    <input type="text" id="nombreCompleto" name="nombreCompleto" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Contraseña</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rol">Tipo de Usuario</label>
+                    <select id="rol" name="rol" required>
+                        <option value="cliente">Cliente</option>
+                        <option value="administrador">Administrador (Solo acceso autorizado)</option>
+                    </select>
+                </div>
 
+                <button type="submit" class="btn-submit">Registrarme</button>
+            </form>
 
-        <!-- Columna 2: Redes sociales -->
-        <div class="footer-col">
-            <h3>Redes Sociales</h3>
-            <ul class="socials">
-                <li><a href="#"><img src="../img/facebook.png" alt=""></a></li>
-                <li><a href="#"><img src="../img/instagram.png" alt=""></a></li>
-                <li><a href="#"><img src="../img/whatsapp.png" alt=""></a></li>
-            </ul>
+            <div class="registro-footer">
+                <p>¿Ya tienes una cuenta? <a href="login.html">Inicia Sesión aquí</a></p>
+                <p><a href="escritorio.html">Volver a la página principal</a></p>
+            </div>
         </div>
+        
     </div>
 
-
-    <div class="footer-bottom">
-        &copy; 2025 Ramber Rojas. Todos los derechos reservados.
-    </div>
-</footer>
-
-
-
-</body>
+    </body>
 </html>

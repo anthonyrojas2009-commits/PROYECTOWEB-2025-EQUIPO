@@ -1,75 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-<title>HIGIENE</title>
-<link rel="shortcut icon" href="../img/gato.png" type="image/x-icon">
-<link rel="stylesheet" href="../css/escritorio.css">
-
+    <title>Higiene para Gatitos - GATOS</title>
+    <link rel="shortcut icon" href="../img/gato.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/footer.css">
-</head>
+    <link rel="stylesheet" href="../css/higiene.css">
 </head>
 <body>
-    <div class="higiene-container">
-  <!-- Header -->
-  <header class="header">
-    <div class="header-content">
-      <div class="cards-grid">
-      <div class="card" onclick="window.location.href='escritorio.html'">
-        <div class="card-icon"><img src="../img/gato.png"></div>
-      <h1> HIGIENE </h1>
-      <div class="user-info">
-        <span class="user-name"><span id="nombreUsuario"></span></span>
-      <span class="user-role" id="rolUsuario"></span>
-        <button id="btnCerrarSesion" class="btn-logout">Cerrar Sesión</button>
-      </div>
-    </div>
-  </header>
-     </div>
+    <div class="escritorio-container">
+        
+        <header class="header">
+          <div class="header-content">
+                <div class="card header-card" onclick="window.location.href='escritorio.html'">
+                    <div class="card-icon"><img src="../img/gato.png" alt="Icono Gatos"></div>
+                    <h1> GATOS </h1>
+                    <div class="user-info">
+                        <span class="user-name"><span id="nombreUsuario">Usuario</span></span>
+                        <span class="user-role" id="rolUsuario">Rol</span>
+                        <button id="btnCerrarSesion" class="btn-logout">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </div>
+            </header>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<footer>
-    <div class="footer-container">
-        <!-- Columna 1: Sobre la web -->
-        <div class="footer-col">
-            <h3>Sobre la Web</h3>
-            <p>Esta web es un proyecto grupal en el cual se demuestra el amor a los gatitos.</p>
-            <ul>
-                 <li><a href="escritorio.html">Inicio</a></li>
+        <main class="main-content">
+            
+            <h2 class="categoria-header">Higiene: Arena, Champú y Accesorios de Limpieza</h2>
+            
+            <div class="productos-grid">
                 
-            </ul>
-        </div>
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('../img/higiene_arena.png');"></div>
+                    <div class="producto-contenido">
+                        <h3>Arena Sanitaria Aglomerante</h3>
+                        <p>Máximo control de olores y fácil de limpiar. Forma aglomerados compactos al contacto con la humedad.</p>
+                        <span class="producto-precio">$14.50</span>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('../img/higiene_shampoo.png');"></div>
+                    <div class="producto-contenido">
+                        <h3>Champú en Seco para Gatos</h3>
+                        <p>Limpia sin necesidad de agua, ideal para gatos que evitan el baño. Fórmula hipoalergénica.</p>
+                        <span class="producto-precio">$10.99</span>
+                    </div>
+                </div>
 
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('../img/higiene_cepillo.png');"></div>
+                    <div class="producto-contenido">
+                        <h3>Cepillo Deslanador Profesional</h3>
+                        <p>Elimina el pelo muerto y previene la formación de bolas de pelo. Mango ergonómico.</p>
+                        <span class="producto-precio">$25.00</span>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('../img/higiene_toallitas.png');"></div>
+                    <div class="producto-contenido">
+                        <h3>Toallitas Húmedas para Patas y Ojos</h3>
+                        <p>Suaves y seguras para la limpieza diaria de zonas sensibles. Sin alcohol ni perfumes fuertes.</p>
+                        <span class="producto-precio">$6.95</span>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+        
+        <footer>
+            </footer>
 
-        <!-- Columna 2: Redes sociales -->
-        <div class="footer-col">
-            <h3>Redes Sociales</h3>
-            <ul class="socials">
-                <li><a href="#"><img src="../img/facebook.png" alt=""></a></li>
-                <li><a href="#"><img src="../img/instagram.png" alt=""></a></li>
-                <li><a href="#"><img src="../img/whatsapp.png" alt=""></a></li>
-            </ul>
-        </div>
     </div>
-
-
-    <div class="footer-bottom">
-        &copy; 2025 Ramber Rojas. Todos los derechos reservados.
-    </div>
-</footer>
-
 </body>
 </html>
