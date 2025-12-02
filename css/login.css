@@ -1,95 +1,85 @@
 /* ========================================================= */
-/* 1. ESTILOS ESPECÍFICOS DE LOGIN/REGISTRO (login.css)      */
-/* Se asume que estilos.css ya define las variables de color */
+/* ESTILOS DE AUTENTICACIÓN: LOGIN Y REGISTRO (login.css)    */
+/* Usa variables de color definidas en estilos.css            */
 /* ========================================================= */
 
-/* Contenedor principal que centra el formulario */
-.login-container {
+/* --- Contenedor Principal (Centra el contenido) --- */
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Asegura que ocupe toda la altura de la vista */
-    background-color: var(--color-fondo-principal); /* Gris oscuro del fondo */
+    min-height: 100vh; 
+    background-color: var(--color-fondo-principal); /* Fondo gris oscuro */
     padding: 20px;
-    box-sizing: border-box;
 }
 
-/* Tarjeta o caja del formulario */
-.login-card {
-    background-color: var(--color-fondo-claro); /* Blanco/Gris claro */
+/* --- Caja de Login/Registro (.login-box) --- */
+.login-box, .registro-box {
+    background-color: var(--color-fondo-claro); /* Fondo de la caja (Blanco) */
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
     width: 100%;
-    max-width: 400px; /* Ancho máximo estándar para formularios */
+    max-width: 420px; /* Un poco más ancho para el formulario de registro */
     text-align: center;
 }
 
-/* Área del Logo y Título */
-.logo-area {
-    margin-bottom: 30px;
-}
-
-.logo-login {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
-}
-
-.login-card h2 {
+/* --- Títulos --- */
+.login-box h1, .registro-box h1 {
     color: var(--color-principal); /* Verde Oliva */
-    font-size: 2.2em;
-    margin: 0;
+    margin-bottom: 30px;
+    font-size: 1.8em;
 }
 
-.login-card h3 {
-    color: var(--color-texto-oscuro);
-    margin-bottom: 25px;
-    font-weight: 300;
-}
-
-/* --- Estilos del Formulario --- */
-
-.auth-form {
+/* --- Grupos de Entrada (.input-group) --- */
+.input-group {
+    margin-bottom: 20px;
     text-align: left;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
+.input-group label {
     display: block;
-    color: var(--color-texto-oscuro);
     margin-bottom: 8px;
     font-weight: bold;
+    color: var(--color-texto-oscuro);
 }
 
-.auth-form input[type="email"],
-.auth-form input[type="password"],
-.auth-form input[type="text"] {
+.input-group input[type="text"],
+.input-group input[type="password"],
+.input-group input[type="email"],
+.input-group select {
     width: 100%;
-    padding: 12px;
+    padding: 12px 10px;
     border: 1px solid var(--color-gris-medio);
     border-radius: 5px;
-    box-sizing: border-box; /* Asegura que el padding no cambie el ancho */
+    box-sizing: border-box; 
     background-color: var(--color-gris-claro);
     color: var(--color-texto-oscuro);
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.auth-form input:focus {
-    border-color: var(--color-principal); /* Borde Verde Oliva al enfocar */
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--color-principal); 
     outline: none;
-    box-shadow: 0 0 5px rgba(85, 107, 47, 0.5); /* Sombra suave */
+    box-shadow: 0 0 5px rgba(85, 107, 47, 0.4); 
     background-color: var(--color-fondo-claro);
 }
 
-/* Estilo del botón principal de acción */
-.btn-principal {
+/* --- Mensaje de ayuda (small) --- */
+.input-group small {
+    display: block;
+    margin-top: 5px;
+    color: var(--color-gris-oscuro);
+    font-size: 0.85em;
+}
+
+/* --- Botón de Enviar (btn-principal) --- */
+.btn-principal,
+.login-box button[type="submit"],
+.registro-box button[type="submit"] {
     width: 100%;
     padding: 12px;
-    margin-top: 10px;
     background-color: var(--color-principal); /* Verde Oliva */
     color: var(--color-texto-claro); /* Blanco */
     border: none;
@@ -98,43 +88,37 @@
     font-size: 1.1em;
     font-weight: bold;
     transition: background-color 0.3s, transform 0.1s;
+    margin-top: 10px;
 }
 
-.btn-principal:hover {
+.btn-principal:hover,
+.login-box button[type="submit"]:hover,
+.registro-box button[type="submit"]:hover {
     background-color: #6B8E23; /* Tono más oscuro de Verde Oliva */
     transform: translateY(-1px);
 }
 
-.btn-principal:active {
-    transform: translateY(0);
-}
-
-/* Enlace de Registro */
-.enlace-registro {
+/* --- Enlaces (Login/Registro) --- */
+.registro-link, .login-link {
     margin-top: 25px;
     font-size: 0.95em;
     color: var(--color-texto-oscuro);
 }
 
-.enlace-registro a {
-    color: var(--color-principal); /* Verde Oliva */
+.registro-link a, .login-link a {
+    color: var(--color-principal); 
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
 }
 
-.enlace-registro a:hover {
-    color: #6B8E23; /* Tono más oscuro al pasar el ratón */
+.registro-link a:hover, .login-link a:hover {
     text-decoration: underline;
 }
 
-/* Media Query para pantallas pequeñas */
+/* --- Media Query para dispositivos pequeños --- */
 @media (max-width: 480px) {
-    .login-card {
+    .login-box, .registro-box {
         padding: 25px;
         margin: 10px;
-    }
-    .login-card h2 {
-        font-size: 1.8em;
     }
 }
