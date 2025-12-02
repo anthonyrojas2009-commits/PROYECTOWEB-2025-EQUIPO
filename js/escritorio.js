@@ -1,70 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- 1. Variables y Configuración del Carrusel ---
+
+    // --- 1. GESTIÓN Y VERIFICACIÓN DE SESIÓN ---
+
+    const usuarioData = sessionStorage.getItem('usuarioLogueado');
+    if (usuarioData) {
+        // La sesión existe, cargamos los datos del usuario
+        const usuario = JSON.parse(usuarioData);
+
+        // Elementos donde se muestra la información del usuario
+        const nombreUsuarioDisplay = document.getElementById('nombreUsuario');
+        const rolUsuarioDisplay = document.getElementById('rolUsuario');
+        const nombreUsuarioBienvenida = document.getElementById('nombreUsuarioBienvenida');
+
+        if (nombreUsuarioDisplay) nombreUsuarioDisplay.textContent = usuario.nombre;
+        if (rolUsuarioDisplay) rolUsuarioDisplay.textContent = usuario.rol;
+        if (nombreUsuarioBienvenida) nombreUsuarioBienvenida.textContent = usuario.nombre;
+
+        // Asegurar que el botón de Cerrar Sesión funcione llamando a la función global
+        const btnCerrarSesion = document.getElementById('btnCerrarSesion');
+        if (btnCerrarSesion) {
+            btnCerrarSesion.addEventListener('click', () => {
+                // window.cerrarSesion debe estar definida en auth.js
+                if (typeof window.cerrarSesion === 'function') {
+                    window.cerrarSesion();
+                } else {
+                    alert("Error: La función de cierre de sesión no está disponible.");
+                }
+            });
+        }
+
+    } else {
+        // Si no hay datos de sesión, redirigir al login
+        alert("Sesión no encontrada. Por favor, inicia sesión.");
+        window.location.href = 'index.html';
+        return; // Detener la ejecución del resto del script si no hay sesión
+    }
+
+
+    // --- 2. LÓGICA DEL CARRUSEL VERTICAL AUTOMÁTICO ---
+
     const carruselVertical = document.querySelector('.carrusel-vertical');
     const items = document.querySelectorAll('.carrusel-item');
     const alturaItem = 300; // Debe coincidir con la altura definida en escritorio.css (300px)
     const totalItems = items.length;
-    
+
     let currentIndex = 0;
     const intervaloTiempo = 3000; // 3 segundos
-    
-    // Establecer la altura total inicial del carrusel
-    if (carruselVertical) {
+
+    // Establecer la altura total del contenedor para que la transición CSS funcione correctamente
+    if (carruselVertical && totalItems > 0) {
         carruselVertical.style.height = `${totalItems * alturaItem}px`;
     }
 
-    // --- 2. Función de Movimiento del Carrusel ---
+    // Función que realiza el movimiento del carrusel
     function moverCarrusel() {
-        if (!carruselVertical) return; // Salir si el elemento no existe
+        if (!carruselVertical || totalItems <= 1) return; // No hacer nada si no hay carrusel o pocos ítems
 
-        // Incrementar el índice
+        // 1. Incrementar el índice
         currentIndex++;
-        
-        // Si el índice supera el último elemento, regresa al primero
+
+        // 2. Si el índice supera el último elemento, regresa al primero
         if (currentIndex >= totalItems) {
             currentIndex = 0;
         }
 
-        // Calcular el desplazamiento vertical
+        // 3. Calcular el desplazamiento vertical (hacia arriba, por eso es negativo)
         const desplazamiento = -currentIndex * alturaItem;
-        
-        // Aplicar la transformación CSS
+
+        // 4. Aplicar la transformación CSS para mover el carrusel
         carruselVertical.style.transform = `translateY(${desplazamiento}px)`;
     }
 
-    // --- 3. Inicialización del Carrusel Automático ---
+    // 5. Inicialización del Carrusel Automático
     if (carruselVertical && totalItems > 1) {
         setInterval(moverCarrusel, intervaloTiempo);
-    }
-
-
-    // --- 4. Inicialización de Información de Usuario (Simulado) ---
-    const nombreUsuarioDisplay = document.getElementById('nombreUsuario');
-    const rolUsuarioDisplay = document.getElementById('rolUsuario');
-    const nombreUsuarioBienvenida = document.getElementById('nombreUsuarioBienvenida');
-    const btnCerrarSesion = document.getElementById('btnCerrarSesion');
-    
-    // Simulación de datos del usuario logueado (Puedes cambiar estos valores)
-    const datosUsuario = {
-        nombre: "Ramber",
-        rol: "Administrador" 
-    };
-
-    if (nombreUsuarioDisplay && rolUsuarioDisplay) {
-        nombreUsuarioDisplay.textContent = datosUsuario.nombre;
-        rolUsuarioDisplay.textContent = datosUsuario.rol;
-    }
-    if (nombreUsuarioBienvenida) {
-        nombreUsuarioBienvenida.textContent = datosUsuario.nombre;
-    }
-
-    // Función de Cerrar Sesión (Simulado)
-    if (btnCerrarSesion) {
-        btnCerrarSesion.addEventListener('click', () => {
-            alert("Sesión cerrada. Redirigiendo a Login.");
-            // En un proyecto real: limpiar tokens o sesión
-            window.location.href = 'index.html'; 
-        });
     }
 });
