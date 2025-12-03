@@ -1,0 +1,174 @@
+/* ========================================================= */
+/* 1. VARIABLES GLOBALES (Depende de estilos.css, pero se incluye como referencia) */
+/* ========================================================= */
+/* Si estas variables ya están en estilos.css, no es necesario incluirlas aquí. */
+
+:root {
+    --color-principal: #556B2F;   /* Verde Oliva */
+    --color-secundario: #D4AF37; /* Dorado o color complementario */
+    --color-fondo-claro: #ffffff; 
+    --color-texto-oscuro: #333333; 
+    --color-gris-suave: #f0f0f0;
+    --sombra-principal: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================================= */
+/* 2. ESTRUCTURA Y FONDO                                     */
+/* ========================================================= */
+
+.bienvenida-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 30px 20px;
+    text-align: center;
+    
+    /* Fondo Blanco y Texto Oscuro */
+    background-color: var(--color-fondo-claro); 
+    color: var(--color-texto-oscuro); 
+}
+
+/* ========================================================= */
+/* 3. CABECERA Y TÍTULOS                                     */
+/* ========================================================= */
+
+header {
+    margin-bottom: 40px;
+}
+
+.logo-bienvenida {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    border: 5px solid var(--color-principal); 
+    box-shadow: 0 0 10px rgba(85, 107, 47, 0.4); 
+    transition: transform 0.3s ease;
+}
+
+.logo-bienvenida:hover {
+    transform: scale(1.05);
+}
+
+.bienvenida-container h1 {
+    font-family: 'Georgia', serif; 
+    font-size: 3.8em; /* Un poco más grande */
+    color: var(--color-principal); 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+    margin: 0;
+    line-height: 1.1;
+}
+
+/* ========================================================= */
+/* 4. CONTENIDO PRINCIPAL Y TEXTO                            */
+/* ========================================================= */
+
+main {
+    max-width: 750px;
+}
+
+.bienvenida-container p {
+    font-size: 1.25em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: var(--color-texto-oscuro);
+}
+
+.slogan {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.4em;
+    color: #4CAF50; /* Un verde vibrante para destacar en blanco */
+    
+    /* Estilo de línea divisoria con el color principal */
+    border-top: 1px solid var(--color-principal); 
+    border-bottom: 1px solid var(--color-principal);
+    padding: 15px 0;
+    margin-bottom: 50px;
+}
+
+/* ========================================================= */
+/* 5. BOTONES DE ACCIÓN                                      */
+/* ========================================================= */
+
+.acciones {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-principal, .btn-secundario {
+    /* Estilos base */
+    padding: 18px 40px; /* Más padding para que sean más grandes */
+    border-radius: 50px; 
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    min-width: 250px; /* Más ancho */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: var(--sombra-principal);
+}
+
+/* Botón "Comenzar" (Primario - Relleno) */
+.btn-principal {
+    background-color: var(--color-principal); 
+    color: var(--color-fondo-claro); /* Texto blanco */
+    border: 2px solid var(--color-principal);
+}
+
+.btn-principal:hover {
+    background-color: #6B8E23; /* Tono más oscuro al pasar el ratón */
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(85, 107, 47, 0.5); /* Sombra más pronunciada */
+}
+
+/* Botón "No estoy interesado" (Secundario - Esquema) */
+.btn-secundario {
+    background-color: transparent;
+    color: var(--color-principal); 
+    border: 2px solid var(--color-principal);
+}
+
+.btn-secundario:hover {
+    background-color: var(--color-principal);
+    color: var(--color-fondo-claro);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(85, 107, 47, 0.5);
+}
+
+/* ========================================================= */
+/* 6. PIE DE PÁGINA Y MEDIA QUERIES                          */
+/* ========================================================= */
+
+footer {
+    margin-top: 60px;
+    font-size: 0.9em;
+    color: #6c757d; 
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+    .bienvenida-container h1 {
+        font-size: 2.8em;
+    }
+    .bienvenida-container p {
+        font-size: 1.1em;
+    }
+    .slogan {
+        font-size: 1.2em;
+    }
+    .acciones {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .btn-principal, .btn-secundario {
+        min-width: 90%;
+        padding: 15px 20px;
+    }
+}

@@ -3,41 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión - GATOS</title>
+    <title>Bienvenido a GATOS</title>
     <link rel="shortcut icon" href="img/gato.png" type="image/x-icon">
     <link rel="stylesheet" href="css/estilos.css">
-        <link rel="stylesheet" href="css/login.css">
-
-    </head>
+    <link rel="stylesheet" href="css/bienvenida.css"> 
+</head>
 <body>
-    <div class="container">
-        <div class="login-box">
-            <h1>🔐 Inicio de Sesión</h1>
-            
-            <form id="formLogin">
-                
-                <div class="input-group">
-                    <label for="loginEmail">Correo Electrónico</label>
-                    <input type="email" id="loginEmail" name="loginEmail" placeholder="Ingresa tu correo" required>
-                </div>
-                
-                <div class="input-group">
-                    <label for="loginPassword">Contraseña</label>
-                    <input type="password" id="loginPassword" name="loginPassword" placeholder="Ingresa tu contraseña" required>
-                </div>
-                
-                <button type="submit">Iniciar Sesión</button>
-                
-                <div id="mensaje" class="mensaje"></div>
-            </form>
-            
-            <div class="registro-link">
-                <p>¿No tienes cuenta? <a href="page/registro.html">Regístrate aquí</a></p>
-            </div>
-            
-        </div>
-    </div>
+    <div class="bienvenida-container">
+        <header>
+            <img src="img/gato.png" alt="Logo de GATOS" class="logo-bienvenida">
+            <h1>Bienvenido al Mundo Felino</h1>
+        </header>
 
-    <script src="js/auth.js"></script>
+        <main>
+            <p>
+                Descubre la guía más completa sobre el cuidado, la nutrición y las novedades 
+                científicas de nuestros compañeros felinos. Explora artículos, razas destacadas 
+                y encuentra productos esenciales para el bienestar de tu gato.
+            </p>
+            <p class="slogan">
+                Proyecto realizado por Anthony y Wallad
+            </p>
+
+            <div class="acciones">
+                <a href="page/escritorio.html" class="btn-principal">
+                    Comenzar
+                </a>
+                
+                <a href="https://youtu.be/dQw4w9WgXcQ?si=cXw5XS2xAGI4ugNy" target="_blank" class="btn-secundario">
+                    No estoy interesado
+                </a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 GATOS. Todos los derechos reservados.</p>
+        </footer>
+    </div>
 </body>
 </html>
